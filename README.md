@@ -41,6 +41,33 @@ Bu proje GitHub Pages üzerinde host edilmektedir. Yeni değişiklikleri yayınl
 npm run deploy
 ```
 
+### Branch Yapısı ve Deployment Süreci
+
+Bu projede iki önemli branch bulunmaktadır:
+
+1. `master` branch: Geliştirme branch'i
+
+   - Tüm kod değişiklikleri burada yapılır
+   - Bu branch'teki değişiklikler otomatik olarak canlı siteyi etkilemez
+   - Değişiklikler test edilip onaylandıktan sonra deploy edilebilir
+
+2. `gh-pages` branch: Deployment branch'i
+   - Sadece build edilmiş dosyaları içerir
+   - `npm run deploy` komutu çalıştırıldığında otomatik güncellenir
+   - GitHub Pages bu branch'ten yayın yapar
+
+Deployment süreci şu şekilde işler:
+
+```
+master branch (geliştirme) -> npm run deploy -> gh-pages branch -> canlı site
+```
+
+Bu yapı sayesinde:
+
+- Geliştirme yaparken canlı site etkilenmez
+- Test edilmemiş değişiklikler yayına gitmez
+- İstediğiniz zaman deploy ederek siteyi güncelleyebilirsiniz
+
 ### GitHub Pages'i Devre Dışı Bırakma
 
 1. GitHub repository sayfasına gidin
