@@ -16,6 +16,7 @@ Bu proje, Aslı ve Evren'in düğün davetiyesi ve bilgilendirme web sitesidir.
 - Tailwind CSS
 - Firebase (RSVP formu için)
 - Google Maps API (lokasyon için)
+- GitHub Pages (hosting)
 
 ## 💻 Geliştirme
 
@@ -31,7 +32,23 @@ npm start
 
 Uygulama http://localhost:3000 adresinde çalışacaktır.
 
-## 🌐 Canlı Site
+## 🌐 Deployment
+
+Bu proje GitHub Pages üzerinde host edilmektedir. Yeni değişiklikleri yayınlamak için:
+
+```bash
+# Projeyi GitHub Pages'e deploy edin
+npm run deploy
+```
+
+### GitHub Pages'i Devre Dışı Bırakma
+
+1. GitHub repository sayfasına gidin
+2. Settings > Pages sekmesine gidin
+3. "Source" kısmından "Deploy from a branch" yerine "None" seçin
+4. Save'e tıklayın
+
+## 🌍 Canlı Site
 
 [https://evrenuzuntas.github.io/aslievren-wedding](https://evrenuzuntas.github.io/aslievren-wedding)
 
