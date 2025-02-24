@@ -17,13 +17,13 @@ const Header = () => {
   const getPageTitle = () => {
     switch (location.pathname) {
       case ROUTES.KINA:
-        return "Kına Gecesi";
+        return "Kına Sayfası";
       case ROUTES.NIKAH:
-        return "Nikah Töreni";
+        return "Nikah Sayfası";
       case ROUTES.AFTER:
-        return "After Party";
+        return "After Sayfası";
       default:
-        return "Asli & Evren";
+        return "Aslı & Evren";
     }
   };
 
@@ -90,6 +90,7 @@ const Header = () => {
             window.open("https://drive.google.com/drive/folders/12eVLkbkzbaA4XI5CkGsYP-NZqgG-V9N1?usp=sharing", "_blank");
           }}
         >
+          <Typography sx={styles.homeText}>Fotoğraflar</Typography>
           <AddToDriveOutlinedIcon />
         </SocialButton>
       </Grid>

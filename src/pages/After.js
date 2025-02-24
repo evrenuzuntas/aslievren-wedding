@@ -11,7 +11,7 @@ import { EVENT_DATES } from "../constants/dates";
 const After = () => {
   const handleAddToCalendar = () => {
     const event = {
-      title: "Asli & Evren After Party",
+      title: "Aslı & Evren After Party",
       description: "Nikah sonrası after party",
       location: "Mekan daha sonra belirlenecektir",
       startTime: "2025-05-18T22:00:00",

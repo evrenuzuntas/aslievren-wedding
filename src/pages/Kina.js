@@ -11,8 +11,8 @@ import { EVENT_DATES } from "../constants/dates";
 const Kina = () => {
   const handleAddToCalendar = () => {
     const event = {
-      title: "Asli & Evren Kına Gecesi",
-      description: "Asli & Evren'in Kına Gecesine davetlisiniz",
+      title: "Aslı & Evren Kına Gecesi",
+      description: "Aslı & Evren'in Kına Gecesine davetlisiniz",
       location: "Livza Organizasyon, Ata, 3497. Sk. Ankor AVM No.4/1, 06000 Yenimahalle/Ankara",
       startTime: "2025-05-17T18:00:00",
       endTime: "2025-05-17T23:00:00",

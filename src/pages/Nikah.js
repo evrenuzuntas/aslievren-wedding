@@ -11,7 +11,7 @@ import { EVENT_DATES } from "../constants/dates";
 const Nikah = () => {
   const handleAddToCalendar = () => {
     const event = {
-      title: "Asli & Evren Nikah Töreni",
+      title: "Aslı & Evren Nikah Töreni",
       description: "Nikah törenimize davetlisiniz",
       location: "Vedat Dalokay Nikah Salonu, Fidanlık, Prof. Dr. Nusret Fişek Cd. No:39, 06420 Çankaya/Ankara",
       startTime: "2025-05-18T14:00:00",
