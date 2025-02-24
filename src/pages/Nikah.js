@@ -35,10 +35,6 @@ const Nikah = () => {
   return (
     <Container maxWidth="md">
       <Box sx={{ py: 8 }}>
-        <Typography variant="h3" component="h1" gutterBottom align="center">
-          Nikah Töreni
-        </Typography>
-
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Card>

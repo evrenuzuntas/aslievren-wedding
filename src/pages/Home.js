@@ -1,13 +1,14 @@
 import React from "react";
 import { Box, Typography, Grid, Container, IconButton, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PhoneIcon from "@mui/icons-material/Phone";
-
+import AddToDriveOutlinedIcon from "@mui/icons-material/AddToDriveOutlined";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 const ProfileImage = styled("img")({
   width: 150,
   height: 150,
@@ -22,8 +23,7 @@ const SocialButton = styled(IconButton)(({ theme }) => ({
 }));
 
 const Home = () => {
-  const path = useLocation();
-  console.log(path, "path");
+  const navigate = useNavigate();
 
   return (
     <Container maxWidth="md">
@@ -38,53 +38,26 @@ const Home = () => {
           py: 8,
         }}
       >
-        <ProfileImage src="/profile-image.jpg" alt="Düğün" />
+        <ProfileImage src={`${process.env.PUBLIC_URL}/nisan_foto.jpg`} alt="fotoğraf" />
         <Typography variant="h2" component="h1" gutterBottom sx={{ mt: 3 }}>
           Asli & Evren
         </Typography>
         <Typography variant="h5" color="textSecondary" gutterBottom>
-          Düğünümüze Hoş Geldiniz
+          Evlilik Sayfamıza Hoş Geldiniz
         </Typography>
 
-        <Grid container spacing={2} justifyContent="center" sx={{ mt: 4 }}>
-          <Grid item>
-            <Link to={ROUTES.KINA} style={{ textDecoration: "none" }}>
-              <Typography variant="button" color="primary">
-                Kına
-              </Typography>
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link to={ROUTES.NIKAH} style={{ textDecoration: "none" }}>
-              <Typography variant="button" color="primary">
-                Nikah
-              </Typography>
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link to={ROUTES.AFTER} style={{ textDecoration: "none" }}>
-              <Typography variant="button" color="primary">
-                After Party
-              </Typography>
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link to={ROUTES.CONTACT} style={{ textDecoration: "none" }}>
-              <Typography variant="button" color="primary">
-                İletişim
-              </Typography>
-            </Link>
-          </Grid>
-        </Grid>
+        <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.NIKAH)} sx={{ mt: 3 }}>
+          Nikah Sayfasına Git
+        </Button>
 
         <Box sx={{ mt: 4 }}>
-          <SocialButton href="https://github.com/yourusername" target="_blank">
-            <GitHubIcon />
+          <SocialButton href="https://drive.google.com/drive/folders/12eVLkbkzbaA4XI5CkGsYP-NZqgG-V9N1?usp=sharing" target="_blank">
+            <AddToDriveOutlinedIcon />
           </SocialButton>
-          <SocialButton href="https://linkedin.com/in/yourusername" target="_blank">
-            <LinkedInIcon />
+          <SocialButton href="https://www.instagram.com/aslihnbkts/" target="_blank">
+            <InstagramIcon />
           </SocialButton>
-          <SocialButton href="https://instagram.com/yourusername" target="_blank">
+          <SocialButton href="https://www.instagram.com/evoloper0/" target="_blank">
             <InstagramIcon />
           </SocialButton>
         </Box>

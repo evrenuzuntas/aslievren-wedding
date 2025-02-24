@@ -10,10 +10,10 @@ const Kina = () => {
   const handleAddToCalendar = () => {
     const event = {
       title: "Asli & Evren Kına Gecesi",
-      description: "Kına gecemize davetlisiniz",
-      location: "Kına Mekanı Adresi",
-      startTime: "2024-06-14T20:00:00", // Örnek tarih
-      endTime: "2024-06-14T23:00:00",
+      description: "Asli & Evren'in Kına Gecesine davetlisiniz",
+      location: "Livza Organizasyon, Ata, 3497. Sk. Ankor AVM No.4/1, 06000 Yenimahalle/Ankara",
+      startTime: "2024-05-17T18:00:00",
+      endTime: "2024-05-17T23:00:00",
     };
 
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}&dates=${event.startTime.replace(/[-:]/g, "")}/${event.endTime.replace(/[-:]/g, "")}`;
@@ -35,33 +35,29 @@ const Kina = () => {
   return (
     <Container maxWidth="md">
       <Box sx={{ py: 8 }}>
-        <Typography variant="h3" component="h1" gutterBottom align="center">
-          Kına Gecesi
-        </Typography>
-
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Card>
-              <CardMedia component="img" height="300" image="/kina-venue.jpg" alt="Kına Mekanı" />
+              <CardMedia component="img" height="300" src={`${process.env.PUBLIC_URL}/Screenshot_1.png`} alt="Kına Mekanı" />
               <CardContent>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={6}>
                     <Box display="flex" alignItems="center" mb={2}>
                       <CalendarTodayIcon sx={{ mr: 2 }} />
-                      <Typography variant="h6">14 Haziran 2024</Typography>
+                      <Typography variant="h6">17 Mayıs 2024</Typography>
                     </Box>
                     <Box display="flex" alignItems="center" mb={2}>
                       <AccessTimeIcon sx={{ mr: 2 }} />
-                      <Typography variant="h6">20:00</Typography>
+                      <Typography variant="h6">18:00</Typography>
                     </Box>
                   </Grid>
                   <Grid item xs={12} md={6}>
                     <Box display="flex" alignItems="center" mb={2}>
                       <LocationOnIcon sx={{ mr: 2 }} />
-                      <Typography variant="h6">Kına Mekanı</Typography>
+                      <Typography variant="h6">Livza Organizasyon</Typography>
                     </Box>
                     <Typography variant="body1" color="text.secondary">
-                      Tam adres bilgisi buraya gelecek
+                      Ata, 3497. Sk. Ankor AVM No.4/1, 06000 Yenimahalle/Ankara
                     </Typography>
                   </Grid>
                 </Grid>
@@ -70,7 +66,7 @@ const Kina = () => {
                   <Button variant="contained" startIcon={<CalendarTodayIcon />} onClick={handleAddToCalendar}>
                     Takvime Ekle
                   </Button>
-                  <Button variant="outlined" startIcon={<DirectionsIcon />} href="https://maps.google.com" target="_blank">
+                  <Button variant="outlined" startIcon={<DirectionsIcon />} href="https://maps.app.goo.gl/TgFgrsgt9wEGN72o7" target="_blank">
                     Yol Tarifi
                   </Button>
                 </Box>
@@ -84,16 +80,16 @@ const Kina = () => {
                 Program Akışı
               </Typography>
               <Typography variant="body1" paragraph>
-                • 20:00 - Karşılama ve Hoş Geldiniz
+                • 18:00 - Karşılama ve Hoş Geldiniz
               </Typography>
               <Typography variant="body1" paragraph>
-                • 20:30 - Yemek Servisi
+                • 18:30 - Yemek Servisi
               </Typography>
               <Typography variant="body1" paragraph>
-                • 21:30 - Kına Merasimi
+                • 19:30 - Kına Merasimi
               </Typography>
               <Typography variant="body1" paragraph>
-                • 22:00 - Müzik ve Eğlence
+                • 20:00 - Müzik ve Eğlence
               </Typography>
             </Paper>
           </Grid>
@@ -107,7 +103,7 @@ const Kina = () => {
                 • Mekan içerisinde otopark mevcuttur.
               </Typography>
               <Typography variant="body1" paragraph>
-                • Kına yakma merasimi saat 21:30'da başlayacaktır.
+                • Kına yakma merasimi saat 19:30'da başlayacaktır.
               </Typography>
               <Typography variant="body1" paragraph>
                 • Fotoğraf çekimi için uygun alanlar bulunmaktadır.
