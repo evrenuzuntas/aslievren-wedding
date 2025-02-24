@@ -45,12 +45,9 @@ const NotFound = () => {
           Aradığınız Sayfa Bulunamadı
         </Typography>
         <Typography variant="body1" color="text.secondary" paragraph>
-          Sanırım yanlış bir adrese geldiniz. Nikah sayfamıza gitmek ister misiniz?
+          Sanırım kaybolduğunuz. Ana sayfamıza gitmek ister misiniz?
         </Typography>
-        <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.NIKAH)} sx={{ mt: 3 }}>
-          Nikah Sayfasına Git
-        </Button>
-        <Button variant="text" onClick={() => navigate(ROUTES.HOME)} sx={{ mt: 2 }}>
+        <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.HOME)} sx={{ mt: 3 }}>
           Ana Sayfaya Dön
         </Button>
       </Box>

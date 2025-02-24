@@ -4,6 +4,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import HomeIcon from "@mui/icons-material/Home";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
+import CurrencyLiraIcon from "@mui/icons-material/CurrencyLira";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 
@@ -17,6 +18,11 @@ const Contact = () => {
 
   const handleWhatsApp = () => {
     window.location.href = `https://wa.me/${phoneNumber.replace("+", "")}`;
+  };
+
+  const handleDonation = () => {
+    // IBAN veya bağış linkini buraya ekleyebilirsiniz
+    window.location.href = "YOUR_DONATION_LINK_HERE";
   };
 
   const handleAddContact = () => {
@@ -104,6 +110,23 @@ END:VCARD`;
             }}
           >
             Rehbere Ekle
+          </Button>
+
+          <Button
+            variant="contained"
+            size="large"
+            startIcon={<CurrencyLiraIcon />}
+            onClick={handleDonation}
+            fullWidth
+            sx={{
+              mb: 2,
+              bgcolor: "#4CAF50",
+              "&:hover": {
+                bgcolor: "#388E3C",
+              },
+            }}
+          >
+            Bağış Yap
           </Button>
 
           <Button variant="outlined" startIcon={<HomeIcon />} onClick={() => navigate(ROUTES.HOME)} fullWidth>
