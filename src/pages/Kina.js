@@ -5,6 +5,8 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
+import CountdownTimer from "../components/CountdownTimer";
+import { EVENT_DATES } from "../constants/dates";
 
 const Kina = () => {
   const handleAddToCalendar = () => {
@@ -33,23 +35,12 @@ const Kina = () => {
   };
 
   return (
-    <Container maxWidth="md">
-      <Box sx={{ py: 4 }}>
-        <Typography
-          variant="h2"
-          align="center"
-          gutterBottom
-          sx={{
-            fontFamily: "'Playfair Display', serif",
-            fontWeight: 700,
-            mb: 4,
-            color: "#800020",
-            fontSize: "3.5rem",
-            textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
-          }}
-        >
+    <Container maxWidth="lg">
+      <Box py={4}>
+        <Typography variant="h3" component="h1" align="center" gutterBottom>
           Kına Gecesi
         </Typography>
+        <CountdownTimer targetDate={EVENT_DATES.KINA} eventName="Kına Gecesi" />
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Card sx={{ bgcolor: "rgba(128, 0, 32, 0.05)" }}>

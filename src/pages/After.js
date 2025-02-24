@@ -5,6 +5,8 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
+import CountdownTimer from "../components/CountdownTimer";
+import { EVENT_DATES } from "../constants/dates";
 
 const After = () => {
   const handleAddToCalendar = () => {
@@ -50,6 +52,7 @@ const After = () => {
         >
           After Party
         </Typography>
+        <CountdownTimer targetDate={EVENT_DATES.AFTER_PARTY} eventName="After Party" />
 
         <Grid container spacing={4}>
           <Grid item xs={12}>
