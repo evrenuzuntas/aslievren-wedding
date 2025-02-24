@@ -10,7 +10,7 @@ const After = () => {
   const handleAddToCalendar = () => {
     const event = {
       title: "Asli & Evren After Party",
-      description: "Düğün sonrası after party",
+      description: "Nikah sonrası after party",
       location: "Mekan daha sonra belirlenecektir",
       startTime: "2025-05-18T22:00:00",
       endTime: "2025-05-19T04:00:00",

@@ -22,14 +22,7 @@ const Nikah = () => {
   };
 
   const handleDownloadInvitation = () => {
-    // Davetiye dosyası hazır olduğunda burası güncellenecek
-    const invitationUrl = "/davetiyeler/nikah-davetiye.jpg";
-    const link = document.createElement("a");
-    link.href = invitationUrl;
-    link.download = "Nikah-Davetiyesi.jpg";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open("https://www.canva.com/design/DAGfeoCjBFA/EWYBjkotorz3m1YyaL1gQg/view?utm_content=DAGfeoCjBFA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hccf109337d", "_blank");
   };
 
   return (

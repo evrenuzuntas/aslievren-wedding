@@ -1,10 +1,10 @@
-# Aslı & Evren Düğün Web Sitesi
+# Aslı & Evren Nikah Web Sitesi
 
-Bu proje, Aslı ve Evren'in düğün davetiyesi ve bilgilendirme web sitesidir.
+Bu proje, Aslı ve Evren'in nikah davetiyesi ve bilgilendirme web sitesidir.
 
 ## 🌟 Özellikler
 
-- Düğün tarihi ve lokasyon bilgileri
+- Nikah tarihi ve lokasyon bilgileri
 - Dijital RSVP formu
 - Fotoğraf galerisi
 - Ulaşım bilgileri
