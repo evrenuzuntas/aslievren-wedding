@@ -35,7 +35,19 @@ const Kina = () => {
   return (
     <Container maxWidth="md">
       <Box sx={{ py: 8 }}>
-        <Typography variant="h2" align="center" gutterBottom sx={{ fontFamily: "'Great Vibes', cursive", mb: 4, color: "#800020" }}>
+        <Typography
+          variant="h2"
+          align="center"
+          gutterBottom
+          sx={{
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: 700,
+            mb: 4,
+            color: "#800020",
+            fontSize: "3.5rem",
+            textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
+          }}
+        >
           Kına Gecesi
         </Typography>
         <Grid container spacing={4}>

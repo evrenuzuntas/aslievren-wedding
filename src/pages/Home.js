@@ -39,16 +39,48 @@ const Home = () => {
         }}
       >
         <ProfileImage src={`${process.env.PUBLIC_URL}/nisan_foto.jpg`} alt="fotoğraf" />
-        <Typography variant="h2" component="h1" gutterBottom sx={{ mt: 3 }}>
+        <Typography
+          variant="h2"
+          component="h1"
+          gutterBottom
+          sx={{
+            mt: 3,
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: 700,
+            fontSize: "3.5rem",
+            textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
+          }}
+        >
           Asli & Evren
         </Typography>
-        <Typography variant="h5" color="textSecondary" gutterBottom>
+        <Typography
+          variant="h5"
+          color="textSecondary"
+          gutterBottom
+          sx={{
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: 500,
+          }}
+        >
           Evlilik Sayfamıza Hoş Geldiniz
         </Typography>
-
-        <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.NIKAH)} sx={{ mt: 3 }}>
-          Nikah Sayfasına Git
-        </Button>
+        <Grid container spacing={2} sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 3 }}>
+          <Grid item>
+            <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.KINA)}>
+              Kına Sayfasına Git
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.NIKAH)}>
+              Nikah Sayfasına Git
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.AFTER)}>
+              After Sayfasına Git
+            </Button>
+          </Grid>
+        </Grid>
 
         <Box sx={{ mt: 4, display: "flex", flexDirection: "row", gap: 2, justifyContent: "center" }}>
           <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>

@@ -21,10 +21,27 @@ const NotFound = () => {
         }}
       >
         <ErrorOutlineIcon sx={{ fontSize: 100, color: "primary.main", mb: 3 }} />
-        <Typography variant="h2" component="h1" gutterBottom>
+        <Typography
+          variant="h2"
+          component="h1"
+          gutterBottom
+          sx={{
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: 700,
+            fontSize: "4rem",
+            textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
+          }}
+        >
           404
         </Typography>
-        <Typography variant="h5" gutterBottom>
+        <Typography
+          variant="h5"
+          gutterBottom
+          sx={{
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: 500,
+          }}
+        >
           Aradığınız Sayfa Bulunamadı
         </Typography>
         <Typography variant="body1" color="text.secondary" paragraph>

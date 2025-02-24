@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Container } from "@mui/material";
 import AppRouter from "./routes/AppRouter";
+import ContactButton from "./components/ContactButton";
 
 const theme = createTheme({
   palette: {
@@ -25,6 +26,7 @@ function App() {
       <Router>
         <Container>
           <AppRouter />
+          <ContactButton />
         </Container>
       </Router>
     </ThemeProvider>
