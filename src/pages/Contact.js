@@ -1,16 +1,20 @@
-import React from "react";
-import { Box, Typography, Button, Container, Paper } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Typography, Button, Container, Paper, Dialog, DialogTitle, DialogContent, DialogActions, Snackbar } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import HomeIcon from "@mui/icons-material/Home";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import CurrencyLiraIcon from "@mui/icons-material/CurrencyLira";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 
 const Contact = () => {
   const navigate = useNavigate();
   const phoneNumber = "+905402028484";
+  const [openDonationDialog, setOpenDonationDialog] = useState(false);
+  const [showCopySuccess, setShowCopySuccess] = useState(false);
+  const IBAN = "TR080011100000000075075260";
 
   const handleCall = () => {
     window.location.href = `tel:${phoneNumber}`;
@@ -21,8 +25,21 @@ const Contact = () => {
   };
 
   const handleDonation = () => {
-    // IBAN veya bağış linkini buraya ekleyebilirsiniz
-    window.location.href = "YOUR_DONATION_LINK_HERE";
+    setOpenDonationDialog(true);
+  };
+
+  const handleCloseDonation = () => {
+    setOpenDonationDialog(false);
+  };
+
+  const handleCopyIBAN = async () => {
+    try {
+      await navigator.clipboard.writeText(IBAN);
+      setShowCopySuccess(true);
+      setTimeout(() => setShowCopySuccess(false), 2000);
+    } catch (err) {
+      console.error("IBAN kopyalama hatası:", err);
+    }
   };
 
   const handleAddContact = () => {
@@ -89,6 +106,30 @@ END:VCARD`;
           <Button variant="contained" size="large" startIcon={<CurrencyLiraIcon />} onClick={handleDonation} fullWidth sx={{ mb: 2 }} color="secondary">
             Bağış Yap
           </Button>
+
+          <Dialog open={openDonationDialog} onClose={handleCloseDonation}>
+            <DialogTitle>Bağış Bilgileri</DialogTitle>
+            <DialogContent>
+              <Typography variant="body1" gutterBottom>
+                Evren Uzuntaş
+              </Typography>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1, bgcolor: "#f5f5f5", p: 2, borderRadius: 1 }}>
+                <Typography variant="body1" sx={{ fontFamily: "monospace" }}>
+                  {IBAN}
+                </Typography>
+                <Button startIcon={<ContentCopyIcon />} onClick={handleCopyIBAN} size="small">
+                  Kopyala
+                </Button>
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseDonation} color="primary">
+                Kapat
+              </Button>
+            </DialogActions>
+          </Dialog>
+
+          <Snackbar open={showCopySuccess} autoHideDuration={2000} message="IBAN kopyalandı" anchorOrigin={{ vertical: "bottom", horizontal: "center" }} />
 
           <Box sx={{ width: "100%", borderTop: "1px solid #e0e0e0", pt: 3, mt: 2 }}>
             <Button
