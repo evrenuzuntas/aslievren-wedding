@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Grid } from "@mui/material";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -55,23 +55,24 @@ const Header = () => {
   };
 
   return (
-    <header style={styles.header}>
-      <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
+    <Grid container style={styles.header} justifyContent="space-between">
+      <Grid item>
         <div style={styles.profileIcon} onClick={() => navigate(ROUTES.HOME)} role="button" aria-label="Go to homepage">
           <span style={styles.iconText}>AS</span>
         </div>
+      </Grid>
+      <Grid item>
         <Typography
           variant="h6"
           sx={{
-            flexGrow: 1,
             textAlign: "center",
-            marginLeft: "-40px", // Icon genişliğini dengelemek için
           }}
         >
           {getPageTitle()}
         </Typography>
-      </Box>
-    </header>
+      </Grid>
+      <Grid item></Grid>
+    </Grid>
   );
 };
 

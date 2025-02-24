@@ -11,9 +11,9 @@ const Nikah = () => {
     const event = {
       title: "Asli & Evren Nikah Töreni",
       description: "Nikah törenimize davetlisiniz",
-      location: "Nikah Salonu Adresi",
-      startTime: "2024-06-15T14:00:00", // Örnek tarih
-      endTime: "2024-06-15T15:00:00",
+      location: "Vedat Dalokay Nikah Salonu, Fidanlık, Prof. Dr. Nusret Fişek Cd. No:39, 06420 Çankaya/Ankara",
+      startTime: "2025-05-18T14:00:00",
+      endTime: "2025-05-18T15:00:00",
     };
 
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}&dates=${event.startTime.replace(/[-:]/g, "")}/${event.endTime.replace(/[-:]/g, "")}`;
@@ -38,13 +38,13 @@ const Nikah = () => {
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Card>
-              <CardMedia component="img" height="300" image="/nikah-venue.jpg" alt="Nikah Mekanı" />
+              <CardMedia component="img" height="400" src={`${process.env.PUBLIC_URL}/Screenshot_2.png`} alt="Kına Mekanı" />
               <CardContent>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={6}>
                     <Box display="flex" alignItems="center" mb={2}>
                       <CalendarTodayIcon sx={{ mr: 2 }} />
-                      <Typography variant="h6">15 Haziran 2024</Typography>
+                      <Typography variant="h6">18 Mayıs 2025</Typography>
                     </Box>
                     <Box display="flex" alignItems="center" mb={2}>
                       <AccessTimeIcon sx={{ mr: 2 }} />
@@ -54,10 +54,10 @@ const Nikah = () => {
                   <Grid item xs={12} md={6}>
                     <Box display="flex" alignItems="center" mb={2}>
                       <LocationOnIcon sx={{ mr: 2 }} />
-                      <Typography variant="h6">Nikah Salonu</Typography>
+                      <Typography variant="h6">Vedat Dalokay Nikah Salonu</Typography>
                     </Box>
                     <Typography variant="body1" color="text.secondary">
-                      Tam adres bilgisi buraya gelecek
+                      Fidanlık, Prof. Dr. Nusret Fişek Cd. No:39, 06420 Çankaya/Ankara
                     </Typography>
                   </Grid>
                 </Grid>
@@ -66,7 +66,7 @@ const Nikah = () => {
                   <Button variant="contained" startIcon={<CalendarTodayIcon />} onClick={handleAddToCalendar}>
                     Takvime Ekle
                   </Button>
-                  <Button variant="outlined" startIcon={<DirectionsIcon />} href="https://maps.google.com" target="_blank">
+                  <Button variant="outlined" startIcon={<DirectionsIcon />} href="https://maps.app.goo.gl/AHxNU1uunaA6pgMS6" target="_blank">
                     Yol Tarifi
                   </Button>
                 </Box>
@@ -86,7 +86,7 @@ const Nikah = () => {
                 • Fotoğraf çekimi için uygun alan bulunmaktadır.
               </Typography>
               <Typography variant="body1" paragraph>
-                • Otopark mevcuttur.
+                • Otopark için Sıhhiye Çok Katlı Otopark'ı kullanabilirsiniz.
               </Typography>
             </Paper>
           </Grid>

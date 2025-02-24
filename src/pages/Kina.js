@@ -12,8 +12,8 @@ const Kina = () => {
       title: "Asli & Evren Kına Gecesi",
       description: "Asli & Evren'in Kına Gecesine davetlisiniz",
       location: "Livza Organizasyon, Ata, 3497. Sk. Ankor AVM No.4/1, 06000 Yenimahalle/Ankara",
-      startTime: "2024-05-17T18:00:00",
-      endTime: "2024-05-17T23:00:00",
+      startTime: "2025-05-17T18:00:00",
+      endTime: "2025-05-17T23:00:00",
     };
 
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}&dates=${event.startTime.replace(/[-:]/g, "")}/${event.endTime.replace(/[-:]/g, "")}`;
@@ -38,13 +38,13 @@ const Kina = () => {
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Card>
-              <CardMedia component="img" height="300" src={`${process.env.PUBLIC_URL}/Screenshot_1.png`} alt="Kına Mekanı" />
+              <CardMedia component="img" height="400" src={`${process.env.PUBLIC_URL}/Screenshot_1.png`} alt="Kına Mekanı" />
               <CardContent>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={6}>
                     <Box display="flex" alignItems="center" mb={2}>
                       <CalendarTodayIcon sx={{ mr: 2 }} />
-                      <Typography variant="h6">17 Mayıs 2024</Typography>
+                      <Typography variant="h6">17 Mayıs 2025</Typography>
                     </Box>
                     <Box display="flex" alignItems="center" mb={2}>
                       <AccessTimeIcon sx={{ mr: 2 }} />
