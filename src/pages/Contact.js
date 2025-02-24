@@ -74,64 +74,37 @@ END:VCARD`;
             Sorularınız için bize ulaşabilirsiniz
           </Typography>
 
-          <Button variant="contained" size="large" startIcon={<PhoneIcon />} onClick={handleCall} fullWidth sx={{ mb: 2 }}>
+          <Button variant="contained" size="large" startIcon={<PhoneIcon />} onClick={handleCall} fullWidth sx={{ mb: 2 }} color="primary">
             {phoneNumber}
           </Button>
 
-          <Button
-            variant="contained"
-            size="large"
-            startIcon={<WhatsAppIcon />}
-            onClick={handleWhatsApp}
-            fullWidth
-            sx={{
-              mb: 2,
-              bgcolor: "#25D366",
-              "&:hover": {
-                bgcolor: "#128C7E",
-              },
-            }}
-          >
+          <Button variant="contained" size="large" startIcon={<WhatsAppIcon />} onClick={handleWhatsApp} fullWidth sx={{ mb: 2 }} color="success">
             WhatsApp'tan Mesaj Gönder
           </Button>
 
-          <Button
-            variant="contained"
-            size="large"
-            startIcon={<ContactPhoneIcon />}
-            onClick={handleAddContact}
-            fullWidth
-            sx={{
-              mb: 2,
-              bgcolor: "#1976d2",
-              "&:hover": {
-                bgcolor: "#115293",
-              },
-            }}
-          >
+          <Button variant="contained" size="large" startIcon={<ContactPhoneIcon />} onClick={handleAddContact} fullWidth sx={{ mb: 2 }} color="info">
             Rehbere Ekle
           </Button>
 
-          <Button
-            variant="contained"
-            size="large"
-            startIcon={<CurrencyLiraIcon />}
-            onClick={handleDonation}
-            fullWidth
-            sx={{
-              mb: 2,
-              bgcolor: "#4CAF50",
-              "&:hover": {
-                bgcolor: "#388E3C",
-              },
-            }}
-          >
+          <Button variant="contained" size="large" startIcon={<CurrencyLiraIcon />} onClick={handleDonation} fullWidth sx={{ mb: 2 }} color="secondary">
             Bağış Yap
           </Button>
 
-          <Button variant="outlined" startIcon={<HomeIcon />} onClick={() => navigate(ROUTES.HOME)} fullWidth>
-            Ana Sayfaya Dön
-          </Button>
+          <Box sx={{ width: "100%", borderTop: "1px solid #e0e0e0", pt: 3, mt: 2 }}>
+            <Button
+              variant="text"
+              startIcon={<HomeIcon />}
+              onClick={() => navigate(ROUTES.HOME)}
+              fullWidth
+              color="inherit"
+              sx={{
+                fontSize: "0.9rem",
+                color: "text.secondary",
+              }}
+            >
+              Ana Sayfaya Dön
+            </Button>
+          </Box>
         </Paper>
       </Box>
     </Container>
