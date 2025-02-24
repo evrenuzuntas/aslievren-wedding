@@ -30,49 +30,54 @@ const Header = () => {
   const styles = {
     header: {
       width: "100%",
-      height: "60px",
+      height: "80px",
       backgroundColor: "#fff",
       boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
       display: "flex",
       alignItems: "center",
-      padding: "0 20px",
+      padding: "0 24px",
       position: "fixed",
       top: 0,
       left: 0,
       zIndex: 1000,
     },
-    profileIcon: {
-      width: "40px",
-      height: "40px",
-      borderRadius: "50%",
-      backgroundColor: "#f0f0f0",
+    homeButton: {
+      padding: "8px 16px",
+      borderRadius: "20px",
+      backgroundColor: "#f8f8f8",
+      border: "1px solid #e0e0e0",
       display: "flex",
       alignItems: "center",
-      justifyContent: "center",
       cursor: "pointer",
-      transition: "transform 0.2s ease",
-      ":hover": {
-        transform: "scale(1.05)",
+      transition: "all 0.2s ease",
+      "&:hover": {
+        backgroundColor: "#f0f0f0",
+        transform: "translateY(-1px)",
       },
     },
-    iconText: {
-      fontSize: "20px",
+    homeText: {
+      fontSize: "16px",
+      fontWeight: 700,
       color: "#333",
+      fontFamily: "'Playfair Display', serif",
     },
   };
 
   return (
-    <Grid container style={styles.header} justifyContent="space-between">
+    <Grid container style={styles.header} justifyContent="space-between" alignItems="center">
       <Grid item>
-        <div style={styles.profileIcon} onClick={() => navigate(ROUTES.HOME)} role="button" aria-label="Go to homepage">
-          <span style={styles.iconText}>AS</span>
-        </div>
+        <Box sx={styles.homeButton} onClick={() => navigate(ROUTES.HOME)} role="button" aria-label="Go to homepage">
+          <Typography sx={styles.homeText}>A&E</Typography>
+        </Box>
       </Grid>
       <Grid item>
         <Typography
           variant="h6"
           sx={{
             textAlign: "center",
+            fontSize: "1.5rem",
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: 700,
           }}
         >
           {getPageTitle()}

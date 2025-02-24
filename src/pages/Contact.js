@@ -45,14 +45,14 @@ const Contact = () => {
   const handleAddContact = () => {
     const vcard = `BEGIN:VCARD
 VERSION:3.0
-FN:Asli & Evren Düğün
+FN:Evren Uzuntaş
 TEL:${phoneNumber}
 END:VCARD`;
     const blob = new Blob([vcard], { type: "text/vcard" });
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", "asli-evren-dugun.vcf");
+    link.setAttribute("download", "evren-uzuntas.vcf");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -103,9 +103,30 @@ END:VCARD`;
             Rehbere Ekle
           </Button>
 
-          <Button variant="contained" size="large" startIcon={<CurrencyLiraIcon />} onClick={handleDonation} fullWidth sx={{ mb: 2 }} color="secondary">
-            Bağış Yap
-          </Button>
+          <Box sx={{ width: "100%", mt: 3, mb: 2 }}>
+            <Button
+              variant="contained"
+              size="small"
+              startIcon={<CurrencyLiraIcon />}
+              onClick={handleDonation}
+              fullWidth
+              sx={{
+                background: "linear-gradient(90deg, #7986cb 0%, #ffffff 300%)",
+                "&:hover": {
+                  background: "linear-gradient(90deg, #5c6bc0 0%, #f5f5f5 300%)",
+                },
+                fontWeight: "500",
+                boxShadow: "0 2px 4px rgba(121, 134, 203, 0.25)",
+                py: 0.5,
+                minHeight: "32px",
+                fontSize: "0.95rem",
+                color: "#2c387e",
+                border: "1px solid #7986cb40",
+              }}
+            >
+              Bağış Yap
+            </Button>
+          </Box>
 
           <Dialog open={openDonationDialog} onClose={handleCloseDonation}>
             <DialogTitle>Bağış Bilgileri</DialogTitle>

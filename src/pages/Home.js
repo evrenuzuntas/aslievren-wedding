@@ -9,13 +9,21 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import PhoneIcon from "@mui/icons-material/Phone";
 import AddToDriveOutlinedIcon from "@mui/icons-material/AddToDriveOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-const ProfileImage = styled("img")({
-  width: 150,
-  height: 150,
+const ProfileImage = styled("img")(({ theme }) => ({
+  width: 180,
+  height: 180,
+  [theme.breakpoints.up("sm")]: {
+    width: 200,
+    height: 200,
+  },
+  [theme.breakpoints.up("md")]: {
+    width: 220,
+    height: 220,
+  },
   borderRadius: "50%",
   objectFit: "cover",
   marginBottom: 2,
-});
+}));
 
 const SocialButton = styled(IconButton)(({ theme }) => ({
   margin: theme.spacing(1),
