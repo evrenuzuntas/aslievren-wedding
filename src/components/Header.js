@@ -1,7 +1,14 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
-import { Typography, Box, Grid } from "@mui/material";
+import { Typography, Box, Grid, IconButton } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import AddToDriveOutlinedIcon from "@mui/icons-material/AddToDriveOutlined";
+
+const SocialButton = styled(IconButton)(({ theme }) => ({
+  margin: theme.spacing(1),
+  color: theme.palette.primary.main,
+}));
 
 const Header = () => {
   const navigate = useNavigate();
@@ -71,7 +78,16 @@ const Header = () => {
           {getPageTitle()}
         </Typography>
       </Grid>
-      <Grid item></Grid>
+      <Grid item>
+        <SocialButton
+          onClick={() => {
+            alert("Çektiğiniz fotoğrafları lütfen buraya yükleyiiz");
+            window.open("https://drive.google.com/drive/folders/12eVLkbkzbaA4XI5CkGsYP-NZqgG-V9N1?usp=sharing", "_blank");
+          }}
+        >
+          <AddToDriveOutlinedIcon />
+        </SocialButton>
+      </Grid>
     </Grid>
   );
 };

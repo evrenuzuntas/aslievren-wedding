@@ -50,16 +50,23 @@ const Home = () => {
           Nikah Sayfasına Git
         </Button>
 
-        <Box sx={{ mt: 4 }}>
-          <SocialButton href="https://drive.google.com/drive/folders/12eVLkbkzbaA4XI5CkGsYP-NZqgG-V9N1?usp=sharing" target="_blank">
-            <AddToDriveOutlinedIcon />
-          </SocialButton>
-          <SocialButton href="https://www.instagram.com/aslihnbkts/" target="_blank">
-            <InstagramIcon />
-          </SocialButton>
-          <SocialButton href="https://www.instagram.com/evoloper0/" target="_blank">
-            <InstagramIcon />
-          </SocialButton>
+        <Box sx={{ mt: 4, display: "flex", flexDirection: "row", gap: 2, justifyContent: "center" }}>
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <SocialButton href="https://www.instagram.com/aslihnbkts/" target="_blank">
+              <InstagramIcon />
+            </SocialButton>
+            <Typography variant="caption" color="textSecondary">
+              @aslihnbkts
+            </Typography>
+          </Box>
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <SocialButton href="https://www.instagram.com/evoloper0/" target="_blank">
+              <InstagramIcon />
+            </SocialButton>
+            <Typography variant="caption" color="textSecondary">
+              @evoloper0
+            </Typography>
+          </Box>
         </Box>
 
         <Button variant="outlined" startIcon={<PhoneIcon />} component={Link} to={ROUTES.CONTACT} sx={{ mt: 4 }}>
