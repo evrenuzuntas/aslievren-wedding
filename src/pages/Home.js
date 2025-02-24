@@ -29,13 +29,13 @@ const Home = () => {
     <Container maxWidth="md">
       <Box
         sx={{
-          minHeight: "100vh",
+          minHeight: "calc(100vh - 120px)",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center",
           textAlign: "center",
-          py: 8,
+          py: 4,
         }}
       >
         <ProfileImage src={`${process.env.PUBLIC_URL}/nisan_foto.jpg`} alt="fotoğraf" />

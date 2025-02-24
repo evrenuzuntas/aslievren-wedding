@@ -46,12 +46,12 @@ END:VCARD`;
     <Container maxWidth="sm">
       <Box
         sx={{
-          minHeight: "100vh",
+          minHeight: "calc(100vh - 120px)",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center",
-          py: 4,
+          py: 2,
         }}
       >
         <Paper

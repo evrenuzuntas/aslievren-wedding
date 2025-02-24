@@ -12,12 +12,13 @@ const NotFound = () => {
     <Container maxWidth="sm">
       <Box
         sx={{
-          minHeight: "100vh",
+          minHeight: "calc(100vh - 120px)",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center",
           textAlign: "center",
+          pt: 8,
         }}
       >
         <ErrorOutlineIcon sx={{ fontSize: 100, color: "primary.main", mb: 3 }} />

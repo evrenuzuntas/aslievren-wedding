@@ -34,7 +34,7 @@ const After = () => {
 
   return (
     <Container maxWidth="md">
-      <Box sx={{ py: 8 }}>
+      <Box sx={{ py: 4 }}>
         <Typography
           variant="h2"
           align="center"
