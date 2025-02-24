@@ -100,10 +100,6 @@ const Home = () => {
             </Typography>
           </Box>
         </Box>
-
-        <Button variant="outlined" startIcon={<PhoneIcon />} component={Link} to={ROUTES.CONTACT} sx={{ mt: 4 }}>
-          Bize Ulaşın
-        </Button>
       </Box>
     </Container>
   );

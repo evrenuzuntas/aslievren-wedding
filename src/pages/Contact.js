@@ -3,6 +3,7 @@ import { Box, Typography, Button, Container, Paper } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import HomeIcon from "@mui/icons-material/Home";
+import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 
@@ -16,6 +17,23 @@ const Contact = () => {
 
   const handleWhatsApp = () => {
     window.location.href = `https://wa.me/${phoneNumber.replace("+", "")}`;
+  };
+
+  const handleAddContact = () => {
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Asli & Evren Düğün
+TEL:${phoneNumber}
+END:VCARD`;
+    const blob = new Blob([vcard], { type: "text/vcard" });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "asli-evren-dugun.vcf");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
   };
 
   return (
@@ -69,6 +87,23 @@ const Contact = () => {
             }}
           >
             WhatsApp'tan Mesaj Gönder
+          </Button>
+
+          <Button
+            variant="contained"
+            size="large"
+            startIcon={<ContactPhoneIcon />}
+            onClick={handleAddContact}
+            fullWidth
+            sx={{
+              mb: 2,
+              bgcolor: "#1976d2",
+              "&:hover": {
+                bgcolor: "#115293",
+              },
+            }}
+          >
+            Rehbere Ekle
           </Button>
 
           <Button variant="outlined" startIcon={<HomeIcon />} onClick={() => navigate(ROUTES.HOME)} fullWidth>
