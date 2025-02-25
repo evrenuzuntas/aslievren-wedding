@@ -15,6 +15,16 @@ DTEND:${formatDate(event.endTime)}
 SUMMARY:${event.title}
 DESCRIPTION:${event.description}
 LOCATION:${event.location}
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:${event.title} yarın!
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:${event.title} 2 saat sonra başlıyor!
+END:VALARM
 END:VEVENT
 END:VCALENDAR`;
 
