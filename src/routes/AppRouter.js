@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { ROUTES } from "../constants/routes";
+import { ROUTES } from "../utils/constants/Constants";
 import Home from "../pages/Home";
 import Kina from "../pages/Kina";
 import Nikah from "../pages/Nikah";

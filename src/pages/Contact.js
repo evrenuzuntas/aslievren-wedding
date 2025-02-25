@@ -7,14 +7,15 @@ import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import CurrencyLiraIcon from "@mui/icons-material/CurrencyLira";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../constants/routes";
+import { ROUTES } from "../utils/constants/Constants";
+import { CONTACT_CONSTANTS } from "../utils/constants/Constants";
 
 const Contact = () => {
   const navigate = useNavigate();
-  const phoneNumber = "+905402028484";
+  const phoneNumber = CONTACT_CONSTANTS.PHONE_NUMBER;
   const [openDonationDialog, setOpenDonationDialog] = useState(false);
   const [showCopySuccess, setShowCopySuccess] = useState(false);
-  const IBAN = "TR080011100000000075075260";
+  const IBAN = CONTACT_CONSTANTS.IBAN;
 
   const handleCall = () => {
     window.location.href = `tel:${phoneNumber}`;

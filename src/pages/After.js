@@ -6,7 +6,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
 import CountdownTimer from "../components/CountdownTimer";
-import { EVENTS } from "../constants/events";
+import { EVENTS } from "../utils/constants/Constants";
 import AddToCalendarButton from "../components/AddToCalendarButton";
 
 const After = () => {
@@ -52,7 +52,7 @@ const After = () => {
                   <Box display="flex" alignItems="center" mb={2}>
                     <CalendarTodayIcon sx={{ mr: 2, color: event.color }} />
                     <Typography variant="h6" sx={{ color: event.color }}>
-                      18 Mayıs 2025
+                      {new Date(event.startTime).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}
                     </Typography>
                   </Box>
                   <Box display="flex" alignItems="center" mb={2}>

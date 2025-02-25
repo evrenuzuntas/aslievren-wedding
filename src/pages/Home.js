@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Typography, Grid, Container, IconButton, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ROUTES } from "../constants/routes";
+import { ROUTES } from "../utils/constants/Constants";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";

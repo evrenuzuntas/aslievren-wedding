@@ -6,7 +6,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
 import CountdownTimer from "../components/CountdownTimer";
-import { EVENTS } from "../constants/events";
+import { EVENTS } from "../utils/constants/Constants";
 import AddToCalendarButton from "../components/AddToCalendarButton";
 
 const Kina = () => {

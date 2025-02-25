@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ROUTES } from "../utils/constants/routes";
+import { ROUTES } from "../utils/constants/Constants";
 import { Grid, IconButton, Typography, Button, Box } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import FavoriteIcon from "@mui/icons-material/Favorite";

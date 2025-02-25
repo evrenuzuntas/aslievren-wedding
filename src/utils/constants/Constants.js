@@ -1,3 +1,8 @@
+export const CONTACT_CONSTANTS = {
+  PHONE_NUMBER: "+905402028484",
+  IBAN: "TR080011100000000075075260",
+};
+
 export const EVENTS = {
   KINA: {
     title: "Aslı & Evren Kına Gecesi",
@@ -35,4 +40,13 @@ export const EVENTS = {
     notes: ["Dress code: Smart Casual", "Vale parking hizmeti mevcuttur", "Parti sabaha kadar devam edecektir"],
     color: "#000080",
   },
+};
+
+export const ROUTES = {
+  HOME: "/aslievren-wedding/",
+  KINA: "/aslievren-wedding/kina",
+  NIKAH: "/aslievren-wedding/nikah",
+  AFTER: "/aslievren-wedding/after",
+  CONTACT: "/aslievren-wedding/iletisim",
+  NOT_FOUND: "*",
 };
