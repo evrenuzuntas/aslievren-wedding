@@ -7,8 +7,8 @@ import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import CurrencyLiraIcon from "@mui/icons-material/CurrencyLira";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../utils/constants/Constants";
-import { CONTACT_CONSTANTS } from "../utils/constants/Constants";
+import { ROUTES } from "../utils/Constants";
+import { CONTACT_CONSTANTS } from "../utils/Constants";
 
 const Contact = () => {
   const navigate = useNavigate();

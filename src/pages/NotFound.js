@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Button, Container, Paper, keyframes } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../utils/constants/Constants";
+import { ROUTES } from "../utils/Constants";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
