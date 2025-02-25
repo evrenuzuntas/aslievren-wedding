@@ -5,6 +5,50 @@ import { Grid, IconButton, Typography, Button, Box } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
+const styles = {
+  footer: {
+    py: 1,
+    px: 2,
+    backgroundColor: "background.paper",
+    borderTop: "1px solid",
+    borderColor: "divider",
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: "100%",
+    zIndex: 1000,
+  },
+  link: {
+    textDecoration: "none",
+    color: "inherit",
+  },
+  typography: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 0.5,
+  },
+  icon: {
+    color: "error.main",
+    fontSize: 16,
+  },
+  copyrightSpan: {
+    mx: 0.5,
+  },
+  rightGrid: {
+    textAlign: { xs: "center", sm: "right" },
+  },
+  centerGrid: {
+    textAlign: "center",
+  },
+  button: {
+    borderRadius: 20,
+    textTransform: "none",
+    px: 2,
+  },
+};
+
 const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,58 +57,24 @@ const Footer = () => {
   const showContactButton = location.pathname !== ROUTES.CONTACT;
 
   return (
-    <Box
-      component="footer"
-      sx={{
-        py: 1,
-        px: 2,
-        backgroundColor: "background.paper",
-        borderTop: "1px solid",
-        borderColor: "divider",
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        width: "100%",
-        zIndex: 1000,
-      }}
-    >
+    <Box component="footer" sx={styles.footer}>
       <Grid container justifyContent="space-between" alignItems="center" spacing={1}>
         <Grid item xs={12} sm={4} />
-        <Grid item xs={12} sm={4} sx={{ textAlign: "center" }}>
-          <a href="https://evoloper.net" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 0.5,
-              }}
-            >
-              <FavoriteIcon sx={{ color: "error.main", fontSize: 16 }} />
+        <Grid item xs={12} sm={4} sx={styles.centerGrid}>
+          <a href="https://evoloper.net" target="_blank" rel="noopener noreferrer" style={styles.link}>
+            <Typography variant="body2" color="text.secondary" sx={styles.typography}>
+              <FavoriteIcon sx={styles.icon} />
               sevgiyle tasarlandı
-              <Box component="span" sx={{ mx: 0.5 }}>
+              <Box component="span" sx={styles.copyrightSpan}>
                 &copy;
               </Box>
               evoloper
             </Typography>
           </a>
         </Grid>
-        <Grid item xs={12} sm={4} sx={{ textAlign: { xs: "center", sm: "right" } }}>
+        <Grid item xs={12} sm={4} sx={styles.rightGrid}>
           {showContactButton && (
-            <Button
-              variant="outlined"
-              size="small"
-              startIcon={<PhoneIcon />}
-              onClick={() => navigate(ROUTES.CONTACT)}
-              sx={{
-                borderRadius: 20,
-                textTransform: "none",
-                px: 2,
-              }}
-            >
+            <Button variant="outlined" size="small" startIcon={<PhoneIcon />} onClick={() => navigate(ROUTES.CONTACT)} sx={styles.button}>
               Bize Ulaşın
             </Button>
           )}

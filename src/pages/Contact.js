@@ -10,6 +10,84 @@ import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../utils/Constants";
 import { CONTACT_CONSTANTS } from "../utils/Constants";
 
+const styles = {
+  mainBox: {
+    minHeight: "calc(100vh - 120px)",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    py: 2,
+  },
+  paper: {
+    p: 4,
+    width: "100%",
+    maxWidth: 400,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 3,
+  },
+  donationButton: {
+    background: "linear-gradient(90deg, #7986cb 0%, #ffffff 300%)",
+    "&:hover": {
+      background: "linear-gradient(90deg, #5c6bc0 0%, #f5f5f5 300%)",
+    },
+    fontWeight: "500",
+    boxShadow: "0 2px 4px rgba(121, 134, 203, 0.25)",
+    py: 0.5,
+    minHeight: "32px",
+    fontSize: "0.95rem",
+    color: "#2c387e",
+    border: "1px solid #7986cb40",
+  },
+  dialogPaper: {
+    m: { xs: 1, sm: 2 },
+    width: "100%",
+    maxWidth: { xs: "100%", sm: "400px" },
+  },
+  dialogTitle: {
+    fontSize: { xs: "1.2rem", sm: "1.5rem" },
+    px: { xs: 2, sm: 3 },
+  },
+  dialogContent: {
+    px: { xs: 2, sm: 3 },
+    py: 2,
+  },
+  ibanBox: {
+    display: "flex",
+    alignItems: "center",
+    gap: 1,
+    bgcolor: "#f5f5f5",
+    p: 2,
+    borderRadius: 1,
+    flexDirection: { xs: "column", sm: "row" },
+    alignItems: { xs: "stretch", sm: "center" },
+  },
+  ibanText: {
+    fontFamily: "monospace",
+    wordBreak: "break-all",
+  },
+  copyButton: {
+    minWidth: { xs: "100%", sm: "auto" },
+    mt: { xs: 1, sm: 0 },
+  },
+  dialogActions: {
+    px: { xs: 2, sm: 3 },
+    pb: 2,
+  },
+  homeButton: {
+    fontSize: "0.9rem",
+    color: "text.secondary",
+  },
+  homeButtonBox: {
+    width: "100%",
+    borderTop: "1px solid #e0e0e0",
+    pt: 3,
+    mt: 2,
+  },
+};
+
 const Contact = () => {
   const navigate = useNavigate();
   const phoneNumber = CONTACT_CONSTANTS.PHONE_NUMBER;
@@ -62,28 +140,8 @@ END:VCARD`;
 
   return (
     <Container maxWidth="sm">
-      <Box
-        sx={{
-          minHeight: "calc(100vh - 120px)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          py: 2,
-        }}
-      >
-        <Paper
-          elevation={3}
-          sx={{
-            p: 4,
-            width: "100%",
-            maxWidth: 400,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 3,
-          }}
-        >
+      <Box sx={styles.mainBox}>
+        <Paper elevation={3} sx={styles.paper}>
           <Typography variant="h4" component="h1" gutterBottom align="center">
             İletişim
           </Typography>
@@ -105,26 +163,7 @@ END:VCARD`;
           </Button>
 
           <Box sx={{ width: "100%", mt: 3, mb: 2 }}>
-            <Button
-              variant="contained"
-              size="small"
-              startIcon={<CurrencyLiraIcon />}
-              onClick={handleDonation}
-              fullWidth
-              sx={{
-                background: "linear-gradient(90deg, #7986cb 0%, #ffffff 300%)",
-                "&:hover": {
-                  background: "linear-gradient(90deg, #5c6bc0 0%, #f5f5f5 300%)",
-                },
-                fontWeight: "500",
-                boxShadow: "0 2px 4px rgba(121, 134, 203, 0.25)",
-                py: 0.5,
-                minHeight: "32px",
-                fontSize: "0.95rem",
-                color: "#2c387e",
-                border: "1px solid #7986cb40",
-              }}
-            >
+            <Button variant="contained" size="small" startIcon={<CurrencyLiraIcon />} onClick={handleDonation} fullWidth sx={styles.donationButton}>
               Bağış Yap
             </Button>
           </Box>
@@ -135,60 +174,24 @@ END:VCARD`;
             maxWidth="xs"
             fullWidth
             PaperProps={{
-              sx: {
-                m: { xs: 1, sm: 2 },
-                width: "100%",
-                maxWidth: { xs: "100%", sm: "400px" },
-              },
+              sx: styles.dialogPaper,
             }}
           >
-            <DialogTitle
-              sx={{
-                fontSize: { xs: "1.2rem", sm: "1.5rem" },
-                px: { xs: 2, sm: 3 },
-              }}
-            >
-              Bağış Bilgileri
-            </DialogTitle>
-            <DialogContent sx={{ px: { xs: 2, sm: 3 }, py: 2 }}>
+            <DialogTitle sx={styles.dialogTitle}>Bağış Bilgileri</DialogTitle>
+            <DialogContent sx={styles.dialogContent}>
               <Typography variant="body1" gutterBottom>
                 Evren Uzuntaş
               </Typography>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  bgcolor: "#f5f5f5",
-                  p: 2,
-                  borderRadius: 1,
-                  flexDirection: { xs: "column", sm: "row" },
-                  alignItems: { xs: "stretch", sm: "center" },
-                }}
-              >
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontFamily: "monospace",
-                    wordBreak: "break-all",
-                  }}
-                >
+              <Box sx={styles.ibanBox}>
+                <Typography variant="body1" sx={styles.ibanText}>
                   {IBAN}
                 </Typography>
-                <Button
-                  startIcon={<ContentCopyIcon />}
-                  onClick={handleCopyIBAN}
-                  size="small"
-                  sx={{
-                    minWidth: { xs: "100%", sm: "auto" },
-                    mt: { xs: 1, sm: 0 },
-                  }}
-                >
+                <Button startIcon={<ContentCopyIcon />} onClick={handleCopyIBAN} size="small" sx={styles.copyButton}>
                   Kopyala
                 </Button>
               </Box>
             </DialogContent>
-            <DialogActions sx={{ px: { xs: 2, sm: 3 }, pb: 2 }}>
+            <DialogActions sx={styles.dialogActions}>
               <Button onClick={handleCloseDonation} color="primary" fullWidth variant="contained">
                 Kapat
               </Button>
@@ -197,18 +200,8 @@ END:VCARD`;
 
           <Snackbar open={showCopySuccess} autoHideDuration={2000} message="IBAN kopyalandı" anchorOrigin={{ vertical: "bottom", horizontal: "center" }} />
 
-          <Box sx={{ width: "100%", borderTop: "1px solid #e0e0e0", pt: 3, mt: 2 }}>
-            <Button
-              variant="text"
-              startIcon={<HomeIcon />}
-              onClick={() => navigate(ROUTES.HOME)}
-              fullWidth
-              color="inherit"
-              sx={{
-                fontSize: "0.9rem",
-                color: "text.secondary",
-              }}
-            >
+          <Box sx={styles.homeButtonBox}>
+            <Button variant="text" startIcon={<HomeIcon />} onClick={() => navigate(ROUTES.HOME)} fullWidth color="inherit" sx={styles.homeButton}>
               Ana Sayfaya Dön
             </Button>
           </Box>

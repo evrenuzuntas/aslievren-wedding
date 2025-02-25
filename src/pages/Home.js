@@ -10,6 +10,47 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import AddToDriveOutlinedIcon from "@mui/icons-material/AddToDriveOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
+const styles = {
+  mainBox: {
+    minHeight: "calc(100vh - 120px)",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    textAlign: "center",
+    py: 4,
+  },
+  mainTitle: {
+    mt: 3,
+    fontFamily: "'Playfair Display', serif",
+    fontWeight: 700,
+    fontSize: "3.5rem",
+    textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
+  },
+  subtitle: {
+    fontFamily: "'Playfair Display', serif",
+    fontWeight: 500,
+  },
+  buttonGrid: {
+    display: "flex",
+    justifyContent: "center",
+    gap: 2,
+    mt: 3,
+  },
+  socialBox: {
+    mt: 4,
+    display: "flex",
+    flexDirection: "row",
+    gap: 2,
+    justifyContent: "center",
+  },
+  socialItemBox: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+};
+
 const ProfileImage = styled("img")(({ theme }) => ({
   width: 180,
   height: 180,
@@ -79,44 +120,15 @@ const Home = () => {
 
   return (
     <Container maxWidth="md">
-      <Box
-        sx={{
-          minHeight: "calc(100vh - 120px)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          textAlign: "center",
-          py: 4,
-        }}
-      >
+      <Box sx={styles.mainBox}>
         <ProfileImage src={`${process.env.PUBLIC_URL}/nisan_foto.jpg`} alt="fotoğraf" onClick={handleImageClick} sx={{ cursor: "pointer" }} />
-        <Typography
-          variant="h2"
-          component="h1"
-          gutterBottom
-          sx={{
-            mt: 3,
-            fontFamily: "'Playfair Display', serif",
-            fontWeight: 700,
-            fontSize: "3.5rem",
-            textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
-          }}
-        >
+        <Typography variant="h2" component="h1" gutterBottom sx={styles.mainTitle}>
           Aslı & Evren
         </Typography>
-        <Typography
-          variant="h5"
-          color="textSecondary"
-          gutterBottom
-          sx={{
-            fontFamily: "'Playfair Display', serif",
-            fontWeight: 500,
-          }}
-        >
+        <Typography variant="h5" color="textSecondary" gutterBottom sx={styles.subtitle}>
           Evlilik Sayfamıza Hoş Geldiniz
         </Typography>
-        <Grid container spacing={2} sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 3 }}>
+        <Grid container spacing={2} sx={styles.buttonGrid}>
           <Grid item>
             <StyledButton startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.KINA)}>
               Kına Sayfasına Git
@@ -127,15 +139,10 @@ const Home = () => {
               Nikah Sayfasına Git
             </StyledButton>
           </Grid>
-          {/* <Grid item>
-            <StyledButton startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.AFTER)}>
-              After Sayfasına Git
-            </StyledButton>
-          </Grid> */}
         </Grid>
 
-        <Box sx={{ mt: 4, display: "flex", flexDirection: "row", gap: 2, justifyContent: "center" }}>
-          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <Box sx={styles.socialBox}>
+          <Box sx={styles.socialItemBox}>
             <SocialButton href="https://www.instagram.com/aslihnbkts/" target="_blank">
               <InstagramIcon />
             </SocialButton>
@@ -143,7 +150,7 @@ const Home = () => {
               @aslihnbkts
             </Typography>
           </Box>
-          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <Box sx={styles.socialItemBox}>
             <SocialButton href="https://www.instagram.com/evoloper0/" target="_blank">
               <InstagramIcon />
             </SocialButton>
