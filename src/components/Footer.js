@@ -1,48 +1,76 @@
 import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { ROUTES } from "../constants/routes";
+import { Grid, IconButton, Typography, Button, Box } from "@mui/material";
+import PhoneIcon from "@mui/icons-material/Phone";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Don't show the contact button on the contact page
+  const showContactButton = location.pathname !== ROUTES.CONTACT;
+
   return (
-    <footer
-      style={{
+    <Box
+      component="footer"
+      sx={{
+        py: 1,
+        px: 2,
+        backgroundColor: "background.paper",
+        borderTop: "1px solid",
+        borderColor: "divider",
         position: "fixed",
         bottom: 0,
+        left: 0,
+        right: 0,
         width: "100%",
-        backgroundColor: "rgba(255, 255, 255, 0.9)",
-        padding: "12px 0",
-        textAlign: "center",
-        borderTop: "1px solid #eaeaea",
-        fontSize: "14px",
-        color: "#666",
-        backdropFilter: "blur(5px)",
+        zIndex: 1000,
       }}
     >
-      <a
-        href="https://evoloper.net"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          textDecoration: "none",
-          color: "inherit",
-          transition: "all 0.3s ease",
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "6px",
-        }}
-        onMouseOver={(e) => {
-          e.target.style.color = "#000";
-          e.target.style.transform = "translateY(-1px)";
-        }}
-        onMouseOut={(e) => {
-          e.target.style.color = "#666";
-          e.target.style.transform = "translateY(0)";
-        }}
-      >
-        <span style={{ fontSize: "16px" }}>♥</span>
-        <span>sevgiyle tasarlandı</span>
-        <span style={{ fontSize: "16px" }}>&copy;</span>
-        <span style={{ fontWeight: "500" }}>evoloper</span>
-      </a>
-    </footer>
+      <Grid container justifyContent="space-between" alignItems="center" spacing={1}>
+        <Grid item xs={12} sm={4} />
+        <Grid item xs={12} sm={4} sx={{ textAlign: "center" }}>
+          <a href="https://evoloper.net" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 0.5,
+              }}
+            >
+              <FavoriteIcon sx={{ color: "error.main", fontSize: 16 }} />
+              sevgiyle tasarlandı
+              <Box component="span" sx={{ mx: 0.5 }}>
+                &copy;
+              </Box>
+              evoloper
+            </Typography>
+          </a>
+        </Grid>
+        <Grid item xs={12} sm={4} sx={{ textAlign: { xs: "center", sm: "right" } }}>
+          {showContactButton && (
+            <Button
+              variant="outlined"
+              size="small"
+              startIcon={<PhoneIcon />}
+              onClick={() => navigate(ROUTES.CONTACT)}
+              sx={{
+                borderRadius: 20,
+                textTransform: "none",
+                px: 2,
+              }}
+            >
+              Bize Ulaşın
+            </Button>
+          )}
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 
