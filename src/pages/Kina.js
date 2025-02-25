@@ -7,19 +7,15 @@ import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
 import CountdownTimer from "../components/CountdownTimer";
 import { EVENT_DATES } from "../constants/dates";
-import { generateICSFile } from "../utils/calendar";
+import AddToCalendarButton from "../components/AddToCalendarButton";
 
 const Kina = () => {
-  const handleAddToCalendar = () => {
-    const event = {
-      title: "Aslı & Evren Kına Gecesi",
-      description: "Aslı & Evren'in Kına Gecesine davetlisiniz",
-      location: "Livza Organizasyon, Ata, 3497. Sk. Ankor AVM No.4/1, 06000 Yenimahalle/Ankara",
-      startTime: "2025-05-17T18:00:00",
-      endTime: "2025-05-17T23:00:00",
-    };
-
-    generateICSFile(event);
+  const event = {
+    title: "Aslı & Evren Kına Gecesi",
+    description: "Aslı & Evren'in Kına Gecesine davetlisiniz",
+    location: "Livza Organizasyon, Ata, 3497. Sk. Ankor AVM No.4/1, 06000 Yenimahalle/Ankara",
+    startTime: "2025-05-17T18:00:00",
+    endTime: "2025-05-17T23:00:00",
   };
 
   const handleDownloadInvitation = () => {
@@ -74,19 +70,15 @@ const Kina = () => {
                 </Grid>
 
                 <Box sx={{ mt: 4, display: "flex", justifyContent: "center", gap: 2, flexWrap: "wrap" }}>
-                  <Button
-                    variant="contained"
-                    startIcon={<CalendarTodayIcon />}
-                    onClick={handleAddToCalendar}
-                    sx={{
+                  <AddToCalendarButton
+                    event={event}
+                    buttonStyle={{
                       bgcolor: "#800020",
                       "&:hover": {
                         bgcolor: "#600018",
                       },
                     }}
-                  >
-                    Takvime Ekle
-                  </Button>
+                  />
                   <Button
                     variant="outlined"
                     startIcon={<DirectionsIcon />}

@@ -1,35 +1,38 @@
 export const generateICSFile = (event) => {
-  // URL parametrelerini oluştur
-  const params = new URLSearchParams({
-    text: event.title,
-    details: event.description,
-    location: event.location,
-    dates: `${event.startTime.replace(/[-:]/g, "")}/${event.endTime.replace(/[-:]/g, "")}`,
-  });
-
-  // Google Calendar URL'ini oluştur
-  const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&${params.toString()}`;
-
-  // Takvim protokol URL'ini oluştur (Apple Calendar, Outlook vb. için)
-  const startDate = new Date(event.startTime);
-  const endDate = new Date(event.endTime);
-  const calendarUrl = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR
+  // ICS dosyası için içerik oluştur
+  const icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
+PRODID:-//Aslı & Evren //TR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
 BEGIN:VEVENT
-URL:${window.location.href}
-DTSTART:${startDate.toISOString().replace(/[-:]/g, "").split(".")[0]}Z
-DTEND:${endDate.toISOString().replace(/[-:]/g, "").split(".")[0]}Z
+UID:${new Date().getTime()}@asli-evren-dugun
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z
+DTSTART:${new Date(event.startTime).toISOString().replace(/[-:]/g, "").split(".")[0]}Z
+DTEND:${new Date(event.endTime).toISOString().replace(/[-:]/g, "").split(".")[0]}Z
 SUMMARY:${event.title}
 DESCRIPTION:${event.description}
 LOCATION:${event.location}
+STATUS:CONFIRMED
+SEQUENCE:0
+TRANSP:OPAQUE
 END:VEVENT
 END:VCALENDAR`;
 
-  // Önce takvim protokolünü dene
-  window.location.href = `webcal:${calendarUrl.substring(5)}`;
+  // ICS dosyasını indir
+  const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+  const url = window.URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  const filename = `${event.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.ics`;
+  link.setAttribute("download", filename);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  window.URL.revokeObjectURL(url);
 
-  // Eğer takvim protokolü çalışmazsa, 500ms sonra Google Calendar'ı aç
+  // Kullanıcıya bilgilendirme mesajı göster
   setTimeout(() => {
-    window.open(googleUrl, "_blank");
+    alert(`"${filename}" dosyası indirildi.\nİndirilen dosyaya tıklayarak etkinliği takviminize ekleyebilirsiniz.`);
   }, 500);
 };

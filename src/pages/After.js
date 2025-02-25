@@ -7,19 +7,15 @@ import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
 import CountdownTimer from "../components/CountdownTimer";
 import { EVENT_DATES } from "../constants/dates";
-import { generateICSFile } from "../utils/calendar";
+import AddToCalendarButton from "../components/AddToCalendarButton";
 
 const After = () => {
-  const handleAddToCalendar = () => {
-    const event = {
-      title: "Aslı & Evren After Party",
-      description: "Nikah sonrası after party",
-      location: "Mekan daha sonra belirlenecektir",
-      startTime: "2025-05-18T22:00:00",
-      endTime: "2025-05-19T04:00:00",
-    };
-
-    generateICSFile(event);
+  const event = {
+    title: "Aslı & Evren After Party",
+    description: "Nikah sonrası after party",
+    location: "Mekan daha sonra belirlenecektir",
+    startTime: "2025-05-18T22:00:00",
+    endTime: "2025-05-19T04:00:00",
   };
 
   const handleDownloadInvitation = () => {
@@ -84,19 +80,15 @@ const After = () => {
                 </Grid>
 
                 <Box sx={{ mt: 4, display: "flex", justifyContent: "center", gap: 2, flexWrap: "wrap" }}>
-                  <Button
-                    variant="contained"
-                    startIcon={<CalendarTodayIcon />}
-                    onClick={handleAddToCalendar}
-                    sx={{
+                  <AddToCalendarButton
+                    event={event}
+                    buttonStyle={{
                       bgcolor: "#000080",
                       "&:hover": {
                         bgcolor: "#000066",
                       },
                     }}
-                  >
-                    Takvime Ekle
-                  </Button>
+                  />
                 </Box>
               </CardContent>
             </Card>

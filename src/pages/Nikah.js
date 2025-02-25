@@ -7,19 +7,15 @@ import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
 import CountdownTimer from "../components/CountdownTimer";
 import { EVENT_DATES } from "../constants/dates";
-import { generateICSFile } from "../utils/calendar";
+import AddToCalendarButton from "../components/AddToCalendarButton";
 
 const Nikah = () => {
-  const handleAddToCalendar = () => {
-    const event = {
-      title: "Aslı & Evren Nikah Töreni",
-      description: "Nikah törenimize davetlisiniz",
-      location: "Vedat Dalokay Nikah Salonu, Fidanlık, Prof. Dr. Nusret Fişek Cd. No:39, 06420 Çankaya/Ankara",
-      startTime: "2025-05-18T14:00:00",
-      endTime: "2025-05-18T15:00:00",
-    };
-
-    generateICSFile(event);
+  const event = {
+    title: "Aslı & Evren Nikah Töreni",
+    description: "Nikah törenimize davetlisiniz",
+    location: "Vedat Dalokay Nikah Salonu, Fidanlık, Prof. Dr. Nusret Fişek Cd. No:39, 06420 Çankaya/Ankara",
+    startTime: "2025-05-18T14:00:00",
+    endTime: "2025-05-18T15:00:00",
   };
 
   const handleDownloadInvitation = () => {
@@ -67,19 +63,15 @@ const Nikah = () => {
                 </Grid>
 
                 <Box sx={{ mt: 4, display: "flex", justifyContent: "center", gap: 2, flexWrap: "wrap" }}>
-                  <Button
-                    variant="contained"
-                    startIcon={<CalendarTodayIcon />}
-                    onClick={handleAddToCalendar}
-                    sx={{
+                  <AddToCalendarButton
+                    event={event}
+                    buttonStyle={{
                       bgcolor: "#5F6F52",
                       "&:hover": {
                         bgcolor: "#4A5940",
                       },
                     }}
-                  >
-                    Takvime Ekle
-                  </Button>
+                  />
                   <Button
                     variant="outlined"
                     startIcon={<DirectionsIcon />}
