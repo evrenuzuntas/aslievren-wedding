@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aslievren-wedding/static/css/main.c0f993b1.css",
-    "main.js": "/aslievren-wedding/static/js/main.70d29b49.js",
+    "main.js": "/aslievren-wedding/static/js/main.f331b7b9.js",
     "static/js/453.3e73369d.chunk.js": "/aslievren-wedding/static/js/453.3e73369d.chunk.js",
     "static/media/roboto-latin-700-normal.woff2": "/aslievren-wedding/static/media/roboto-latin-700-normal.4535474e1cf8598695ad.woff2",
     "static/media/roboto-latin-500-normal.woff2": "/aslievren-wedding/static/media/roboto-latin-500-normal.7077203b1982951ecf76.woff2",
@@ -61,11 +61,11 @@
     "static/media/roboto-greek-ext-400-normal.woff": "/aslievren-wedding/static/media/roboto-greek-ext-400-normal.16eb83b4a3b1ea994243.woff",
     "index.html": "/aslievren-wedding/index.html",
     "main.c0f993b1.css.map": "/aslievren-wedding/static/css/main.c0f993b1.css.map",
-    "main.70d29b49.js.map": "/aslievren-wedding/static/js/main.70d29b49.js.map",
+    "main.f331b7b9.js.map": "/aslievren-wedding/static/js/main.f331b7b9.js.map",
     "453.3e73369d.chunk.js.map": "/aslievren-wedding/static/js/453.3e73369d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c0f993b1.css",
-    "static/js/main.70d29b49.js"
+    "static/js/main.f331b7b9.js"
   ]
 }
