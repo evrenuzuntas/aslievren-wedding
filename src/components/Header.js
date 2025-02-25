@@ -65,12 +65,12 @@ const Header = () => {
 
   return (
     <Grid container style={styles.header} justifyContent="space-between" alignItems="center">
-      <Grid item>
+      <Grid item xs={3} sx={{ display: "flex", justifyContent: "flex-start" }}>
         <Box sx={styles.homeButton} onClick={() => navigate(ROUTES.HOME)} role="button" aria-label="Go to homepage">
           <Typography sx={styles.homeText}>A&E</Typography>
         </Box>
       </Grid>
-      <Grid item>
+      <Grid item xs={6}>
         <Typography
           variant="h6"
           sx={{
@@ -78,12 +78,13 @@ const Header = () => {
             fontSize: "1.5rem",
             fontFamily: "'Playfair Display', serif",
             fontWeight: 700,
+            width: "100%",
           }}
         >
           {getPageTitle()}
         </Typography>
       </Grid>
-      <Grid item>
+      <Grid item xs={3} sx={{ display: "flex", justifyContent: "flex-end" }}>
         <SocialButton
           onClick={() => {
             alert("Çektiğiniz fotoğrafları lütfen buraya yükleyiiz");

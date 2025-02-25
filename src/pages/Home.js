@@ -23,6 +23,14 @@ const ProfileImage = styled("img")(({ theme }) => ({
   borderRadius: "50%",
   objectFit: "cover",
   marginBottom: 2,
+  border: "8px solid rgba(255, 255, 255, 0.8)",
+  boxShadow: "0 0 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.1)",
+  transition: "all 0.3s ease-in-out",
+  "&:hover": {
+    transform: "scale(1.05)",
+    boxShadow: "0 0 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(0, 0, 0, 0.15)",
+    border: "8px solid rgba(255, 255, 255, 0.9)",
+  },
 }));
 
 const SocialButton = styled(IconButton)(({ theme }) => ({
