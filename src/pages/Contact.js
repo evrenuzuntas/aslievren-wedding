@@ -128,23 +128,67 @@ END:VCARD`;
             </Button>
           </Box>
 
-          <Dialog open={openDonationDialog} onClose={handleCloseDonation}>
-            <DialogTitle>Bağış Bilgileri</DialogTitle>
-            <DialogContent>
+          <Dialog
+            open={openDonationDialog}
+            onClose={handleCloseDonation}
+            maxWidth="xs"
+            fullWidth
+            PaperProps={{
+              sx: {
+                m: { xs: 1, sm: 2 },
+                width: "100%",
+                maxWidth: { xs: "100%", sm: "400px" },
+              },
+            }}
+          >
+            <DialogTitle
+              sx={{
+                fontSize: { xs: "1.2rem", sm: "1.5rem" },
+                px: { xs: 2, sm: 3 },
+              }}
+            >
+              Bağış Bilgileri
+            </DialogTitle>
+            <DialogContent sx={{ px: { xs: 2, sm: 3 }, py: 2 }}>
               <Typography variant="body1" gutterBottom>
                 Evren Uzuntaş
               </Typography>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1, bgcolor: "#f5f5f5", p: 2, borderRadius: 1 }}>
-                <Typography variant="body1" sx={{ fontFamily: "monospace" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  bgcolor: "#f5f5f5",
+                  p: 2,
+                  borderRadius: 1,
+                  flexDirection: { xs: "column", sm: "row" },
+                  alignItems: { xs: "stretch", sm: "center" },
+                }}
+              >
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontFamily: "monospace",
+                    wordBreak: "break-all",
+                  }}
+                >
                   {IBAN}
                 </Typography>
-                <Button startIcon={<ContentCopyIcon />} onClick={handleCopyIBAN} size="small">
+                <Button
+                  startIcon={<ContentCopyIcon />}
+                  onClick={handleCopyIBAN}
+                  size="small"
+                  sx={{
+                    minWidth: { xs: "100%", sm: "auto" },
+                    mt: { xs: 1, sm: 0 },
+                  }}
+                >
                   Kopyala
                 </Button>
               </Box>
             </DialogContent>
-            <DialogActions>
-              <Button onClick={handleCloseDonation} color="primary">
+            <DialogActions sx={{ px: { xs: 2, sm: 3 }, pb: 2 }}>
+              <Button onClick={handleCloseDonation} color="primary" fullWidth variant="contained">
                 Kapat
               </Button>
             </DialogActions>

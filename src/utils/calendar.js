@@ -1,39 +1,35 @@
 export const generateICSFile = (event) => {
-  const formatDate = (date) => {
-    return date.replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-  };
+  // URL parametrelerini oluştur
+  const params = new URLSearchParams({
+    text: event.title,
+    details: event.description,
+    location: event.location,
+    dates: `${event.startTime.replace(/[-:]/g, "")}/${event.endTime.replace(/[-:]/g, "")}`,
+  });
 
-  const icsContent = `BEGIN:VCALENDAR
+  // Google Calendar URL'ini oluştur
+  const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&${params.toString()}`;
+
+  // Takvim protokol URL'ini oluştur (Apple Calendar, Outlook vb. için)
+  const startDate = new Date(event.startTime);
+  const endDate = new Date(event.endTime);
+  const calendarUrl = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Aslı & Evren Düğün//TR
-CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:${new Date().getTime()}@asli-evren-dugun
-DTSTAMP:${formatDate(new Date().toISOString())}
-DTSTART:${formatDate(event.startTime)}
-DTEND:${formatDate(event.endTime)}
+URL:${window.location.href}
+DTSTART:${startDate.toISOString().replace(/[-:]/g, "").split(".")[0]}Z
+DTEND:${endDate.toISOString().replace(/[-:]/g, "").split(".")[0]}Z
 SUMMARY:${event.title}
 DESCRIPTION:${event.description}
 LOCATION:${event.location}
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:${event.title} yarın!
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:${event.title} 2 saat sonra başlıyor!
-END:VALARM
 END:VEVENT
 END:VCALENDAR`;
 
-  const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
-  const link = document.createElement("a");
-  link.href = window.URL.createObjectURL(blob);
-  link.setAttribute("download", `${event.title.replace(/\s+/g, "-")}.ics`);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  window.URL.revokeObjectURL(link.href);
+  // Önce takvim protokolünü dene
+  window.location.href = `webcal:${calendarUrl.substring(5)}`;
+
+  // Eğer takvim protokolü çalışmazsa, 500ms sonra Google Calendar'ı aç
+  setTimeout(() => {
+    window.open(googleUrl, "_blank");
+  }, 500);
 };
