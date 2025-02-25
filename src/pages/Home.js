@@ -9,6 +9,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import PhoneIcon from "@mui/icons-material/Phone";
 import AddToDriveOutlinedIcon from "@mui/icons-material/AddToDriveOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+
 const ProfileImage = styled("img")(({ theme }) => ({
   width: 180,
   height: 180,
@@ -36,6 +37,30 @@ const ProfileImage = styled("img")(({ theme }) => ({
 const SocialButton = styled(IconButton)(({ theme }) => ({
   margin: theme.spacing(1),
   color: theme.palette.primary.main,
+}));
+
+const StyledButton = styled(Button)(({ theme }) => ({
+  padding: "12px 24px",
+  borderRadius: "30px",
+  fontSize: "1.1rem",
+  fontFamily: "'Playfair Display', serif",
+  textTransform: "none",
+  transition: "all 0.3s ease-in-out",
+  background: "linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.primary.light})",
+  boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+  "&:hover": {
+    transform: "translateY(-3px)",
+    boxShadow: "0 6px 20px rgba(0, 0, 0, 0.15)",
+    background: "linear-gradient(45deg, ${theme.palette.primary.light}, ${theme.palette.primary.main})",
+  },
+  "& .MuiSvgIcon-root": {
+    fontSize: "1.3rem",
+    marginRight: "8px",
+    transition: "transform 0.3s ease",
+  },
+  "&:hover .MuiSvgIcon-root": {
+    transform: "scale(1.2) rotate(-10deg)",
+  },
 }));
 
 const Home = () => {
@@ -93,19 +118,19 @@ const Home = () => {
         </Typography>
         <Grid container spacing={2} sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 3 }}>
           <Grid item>
-            <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.KINA)}>
+            <StyledButton startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.KINA)}>
               Kına Sayfasına Git
-            </Button>
+            </StyledButton>
           </Grid>
           <Grid item>
-            <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.NIKAH)}>
+            <StyledButton startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.NIKAH)}>
               Nikah Sayfasına Git
-            </Button>
+            </StyledButton>
           </Grid>
           {/* <Grid item>
-            <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.AFTER)}>
+            <StyledButton startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.AFTER)}>
               After Sayfasına Git
-            </Button>
+            </StyledButton>
           </Grid> */}
         </Grid>
 
