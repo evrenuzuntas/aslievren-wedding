@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography, Grid, Container, IconButton, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -40,6 +40,17 @@ const SocialButton = styled(IconButton)(({ theme }) => ({
 
 const Home = () => {
   const navigate = useNavigate();
+  const [clickCount, setClickCount] = useState(0);
+
+  const handleImageClick = () => {
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+
+    if (newCount === 5) {
+      navigate(ROUTES.AFTER);
+      setClickCount(0);
+    }
+  };
 
   return (
     <Container maxWidth="md">
@@ -54,7 +65,7 @@ const Home = () => {
           py: 4,
         }}
       >
-        <ProfileImage src={`${process.env.PUBLIC_URL}/nisan_foto.jpg`} alt="fotoğraf" />
+        <ProfileImage src={`${process.env.PUBLIC_URL}/nisan_foto.jpg`} alt="fotoğraf" onClick={handleImageClick} sx={{ cursor: "pointer" }} />
         <Typography
           variant="h2"
           component="h1"
@@ -91,11 +102,11 @@ const Home = () => {
               Nikah Sayfasına Git
             </Button>
           </Grid>
-          <Grid item>
+          {/* <Grid item>
             <Button variant="contained" size="large" startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.AFTER)}>
               After Sayfasına Git
             </Button>
-          </Grid>
+          </Grid> */}
         </Grid>
 
         <Box sx={{ mt: 4, display: "flex", flexDirection: "row", gap: 2, justifyContent: "center" }}>
