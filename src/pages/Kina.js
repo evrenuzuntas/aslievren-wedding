@@ -7,6 +7,7 @@ import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
 import CountdownTimer from "../components/CountdownTimer";
 import { EVENT_DATES } from "../constants/dates";
+import { generateICSFile } from "../utils/calendar";
 
 const Kina = () => {
   const handleAddToCalendar = () => {
@@ -18,9 +19,7 @@ const Kina = () => {
       endTime: "2025-05-17T23:00:00",
     };
 
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}&dates=${event.startTime.replace(/[-:]/g, "")}/${event.endTime.replace(/[-:]/g, "")}`;
-
-    window.open(googleCalendarUrl, "_blank");
+    generateICSFile(event);
   };
 
   const handleDownloadInvitation = () => {
@@ -44,7 +43,7 @@ const Kina = () => {
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Card sx={{ bgcolor: "rgba(128, 0, 32, 0.05)" }}>
-              <CardMedia component="img" height="400" src={`${process.env.PUBLIC_URL}/Screenshot_1.png`} alt="Kına Mekanı" />
+              <CardMedia component="img" height="400" src={`${process.env.PUBLIC_URL}/Screenshot_1.png`} alt="Kına Mekanı" sx={{ cursor: "pointer" }} onClick={() => window.open("https://maps.app.goo.gl/TgFgrsgt9wEGN72o7", "_blank")} />
               <CardContent>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={6}>

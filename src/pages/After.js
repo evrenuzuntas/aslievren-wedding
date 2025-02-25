@@ -7,6 +7,7 @@ import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
 import CountdownTimer from "../components/CountdownTimer";
 import { EVENT_DATES } from "../constants/dates";
+import { generateICSFile } from "../utils/calendar";
 
 const After = () => {
   const handleAddToCalendar = () => {
@@ -18,9 +19,7 @@ const After = () => {
       endTime: "2025-05-19T04:00:00",
     };
 
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}&dates=${event.startTime.replace(/[-:]/g, "")}/${event.endTime.replace(/[-:]/g, "")}`;
-
-    window.open(googleCalendarUrl, "_blank");
+    generateICSFile(event);
   };
 
   const handleDownloadInvitation = () => {
@@ -57,7 +56,7 @@ const After = () => {
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Card sx={{ bgcolor: "rgba(0, 0, 128, 0.05)" }}>
-              <CardMedia component="img" height="300" image="/after-party-venue.jpg" alt="After Party Mekanı" />
+              <CardMedia component="img" height="300" image="/after-party-venue.jpg" alt="After Party Mekanı" sx={{ cursor: "not-allowed" }} onClick={() => alert("Mekan bilgisi daha sonra eklenecektir.")} />
               <CardContent>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={6}>

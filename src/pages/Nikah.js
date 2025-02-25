@@ -7,6 +7,7 @@ import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
 import CountdownTimer from "../components/CountdownTimer";
 import { EVENT_DATES } from "../constants/dates";
+import { generateICSFile } from "../utils/calendar";
 
 const Nikah = () => {
   const handleAddToCalendar = () => {
@@ -18,9 +19,7 @@ const Nikah = () => {
       endTime: "2025-05-18T15:00:00",
     };
 
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}&dates=${event.startTime.replace(/[-:]/g, "")}/${event.endTime.replace(/[-:]/g, "")}`;
-
-    window.open(googleCalendarUrl, "_blank");
+    generateICSFile(event);
   };
 
   const handleDownloadInvitation = () => {
@@ -37,7 +36,7 @@ const Nikah = () => {
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Card sx={{ bgcolor: "rgba(95, 111, 82, 0.05)" }}>
-              <CardMedia component="img" height="400" src={`${process.env.PUBLIC_URL}/Screenshot_2.png`} alt="Nikah Mekanı" />
+              <CardMedia component="img" height="400" src={`${process.env.PUBLIC_URL}/Screenshot_2.png`} alt="Nikah Mekanı" sx={{ cursor: "pointer" }} onClick={() => window.open("https://maps.app.goo.gl/AHxNU1uunaA6pgMS6", "_blank")} />
               <CardContent>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={6}>

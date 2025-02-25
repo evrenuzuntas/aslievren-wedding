@@ -91,7 +91,14 @@ const Header = () => {
             window.open("https://drive.google.com/drive/folders/12eVLkbkzbaA4XI5CkGsYP-NZqgG-V9N1?usp=sharing", "_blank");
           }}
         >
-          <Typography sx={styles.homeText}>Fotoğraflar</Typography>
+          <Typography
+            sx={{
+              ...styles.homeText,
+              display: { xs: "none", sm: "block" },
+            }}
+          >
+            Fotoğraflar
+          </Typography>
           <AddToDriveOutlinedIcon />
         </SocialButton>
       </Grid>
