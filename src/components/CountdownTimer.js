@@ -53,7 +53,7 @@ const CountdownTimer = ({ targetDate, eventName }) => {
   return (
     <Box textAlign="center" my={4}>
       <Typography variant="h5" color="primary" gutterBottom>
-        {eventName}'a kalan süre
+        {eventName}'ne kalan süre
       </Typography>
       <Box display="flex" justifyContent="center" flexWrap="wrap" gap={2}>
         <TimerBox elevation={3}>

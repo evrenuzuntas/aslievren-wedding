@@ -6,7 +6,6 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import DownloadIcon from "@mui/icons-material/Download";
 import CountdownTimer from "../components/CountdownTimer";
-import { EVENT_DATES } from "../constants/dates";
 import { EVENTS } from "../constants/events";
 import AddToCalendarButton from "../components/AddToCalendarButton";
 
@@ -29,7 +28,7 @@ const Kina = () => {
       <Typography variant="h3" component="h1" align="center" gutterBottom>
         Kına Gecesi
       </Typography>
-      <CountdownTimer targetDate={EVENT_DATES.KINA} eventName="Kına Gecesi" />
+      <CountdownTimer targetDate={EVENTS.KINA.startTime} eventName="Kına Gecesi" />
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Card sx={{ bgcolor: `${event.color}0D` }}>
