@@ -43,10 +43,10 @@ export const EVENTS = {
 };
 
 export const ROUTES = {
-  HOME: "/aslievren-wedding/",
-  KINA: "/aslievren-wedding/kina",
-  NIKAH: "/aslievren-wedding/nikah",
-  AFTER: "/aslievren-wedding/after",
-  CONTACT: "/aslievren-wedding/iletisim",
+  HOME: "/",
+  KINA: "/kina",
+  NIKAH: "/nikah",
+  AFTER: "/after",
+  CONTACT: "/iletisim",
   NOT_FOUND: "*",
 };

@@ -62,11 +62,9 @@ const Kina = () => {
   const event = EVENTS.KINA;
 
   const handleDownloadInvitation = () => {
-    // Davetiye dosyası hazır olduğunda burası güncellenecek
-    const invitationUrl = "/davetiyeler/kina-davetiye.jpg";
     const link = document.createElement("a");
-    link.href = invitationUrl;
-    link.download = "Kina-Davetiyesi.jpg";
+    link.href = `${process.env.PUBLIC_URL}/aslievren-kina-davetiyesi.png`;
+    link.download = "aslievren-kina-davetiyesi.png";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -78,6 +76,28 @@ const Kina = () => {
         Kına Gecesi
       </Typography>
       <CountdownTimer targetDate={EVENTS.KINA.startTime} eventName="Kına Gecesi" />
+
+      <Paper sx={{ ...styles.paper(event.color), mb: 4, textAlign: "center" }}>
+        <Typography variant="h4" gutterBottom sx={{ ...styles.typography(event.color), fontWeight: "bold" }}>
+          🌿 Kına Gecemize Davetlisiniz! 🌿
+        </Typography>
+        <Typography variant="body1" paragraph sx={styles.typography(event.color)}>
+          Sevdiklerimiz olmadan bu özel gece eksik kalırdı! 🎶✨
+        </Typography>
+        <Typography variant="body1" paragraph sx={styles.typography(event.color)}>
+          Sizleri, mutluluğumuzu paylaşmaya ve eğlencemize ortak olmaya davet ediyoruz.
+        </Typography>
+        <Typography variant="body1" paragraph sx={styles.typography(event.color)}>
+          Kına yakılır, dualar edilir, oyunlar oynanır… Birlikte çok güzel bir gece geçireceğimize eminiz! 🌺
+        </Typography>
+        <Typography variant="body1" paragraph sx={styles.typography(event.color)}>
+          Bekliyoruz! ❤️💃
+        </Typography>
+        <Typography variant="body1" sx={{ ...styles.typography(event.color), fontStyle: "italic", mt: 2 }}>
+          (Katılımınızı bildirirseniz çok seviniriz.)
+        </Typography>
+      </Paper>
+
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Card sx={styles.card(event.color)}>

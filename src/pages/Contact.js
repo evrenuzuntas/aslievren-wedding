@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography, Button, Container, Paper, Dialog, DialogTitle, DialogContent, DialogActions, Snackbar } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -93,7 +93,31 @@ const Contact = () => {
   const phoneNumber = CONTACT_CONSTANTS.PHONE_NUMBER;
   const [openDonationDialog, setOpenDonationDialog] = useState(false);
   const [showCopySuccess, setShowCopySuccess] = useState(false);
+  const [goldPrice, setGoldPrice] = useState(null);
+  const [loading, setLoading] = useState(false);
   const IBAN = CONTACT_CONSTANTS.IBAN;
+
+  useEffect(() => {
+    const fetchGoldPrice = async () => {
+      if (openDonationDialog) {
+        setLoading(true);
+        try {
+          const response = await fetch("https://finans.truncgil.com/today.json");
+          const data = await response.json();
+          console.log("API Response:", data);
+          const goldPrice = data["gram-altin"]["Satış"];
+          const cleanPrice = goldPrice.replace(".", "").replace(",", ".");
+          setGoldPrice(parseFloat(cleanPrice).toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+        } catch (error) {
+          console.error("Altın fiyatı çekme hatası:", error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchGoldPrice();
+  }, [openDonationDialog]);
 
   const handleCall = () => {
     window.location.href = `tel:${phoneNumber}`;
@@ -164,7 +188,7 @@ END:VCARD`;
 
           <Box sx={{ width: "100%", mt: 3, mb: 2 }}>
             <Button variant="contained" size="small" startIcon={<CurrencyLiraIcon />} onClick={handleDonation} fullWidth sx={styles.donationButton}>
-              Bağış Yap
+              {" Altın Tak :)"}
             </Button>
           </Box>
 
@@ -182,6 +206,22 @@ END:VCARD`;
               <Typography variant="body1" gutterBottom>
                 Evren Uzuntaş
               </Typography>
+              <Box
+                sx={{
+                  bgcolor: "#fafafa",
+                  p: 2,
+                  mb: 2,
+                  borderRadius: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography variant="body1">Güncel Gram Altın:</Typography>
+                <Typography variant="body1" sx={{ fontWeight: "bold", color: "#d4af37" }}>
+                  {loading ? "Yükleniyor..." : goldPrice ? `₺${goldPrice}` : "Fiyat alınamadı"}
+                </Typography>
+              </Box>
               <Box sx={styles.ibanBox}>
                 <Typography variant="body1" sx={styles.ibanText}>
                   {IBAN}

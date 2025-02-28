@@ -61,7 +61,12 @@ const Nikah = () => {
   const event = EVENTS.NIKAH;
 
   const handleDownloadInvitation = () => {
-    window.open("https://www.canva.com/design/DAGfeoCjBFA/EWYBjkotorz3m1YyaL1gQg/view?utm_content=DAGfeoCjBFA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hccf109337d", "_blank");
+    const link = document.createElement("a");
+    link.href = `${process.env.PUBLIC_URL}/aslievren-nikah-davetiyesi.png`;
+    link.download = "aslievren-nikah-davetiyesi.png";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -70,6 +75,25 @@ const Nikah = () => {
         Nikah Töreni
       </Typography>
       <CountdownTimer targetDate={EVENTS.NIKAH.startTime} eventName="Nikah Töreni" />
+
+      <Paper sx={{ ...styles.paper(event.color), mb: 4, textAlign: "center" }}>
+        <Typography variant="h4" gutterBottom sx={{ ...styles.coloredText(event.color), fontWeight: "bold" }}>
+          💍 Nikahımıza Davetlisiniz! 💍
+        </Typography>
+        <Typography variant="body1" paragraph sx={styles.coloredText(event.color)}>
+          Hayatımızın en özel günlerinden birinde, mutluluğumuzu sizinle paylaşmak istiyoruz! ❤️
+        </Typography>
+        <Typography variant="body1" paragraph sx={styles.coloredText(event.color)}>
+          Bu güzel anlara şahitlik etmeniz bizim için çok kıymetli.
+        </Typography>
+        <Typography variant="body1" paragraph sx={styles.coloredText(event.color)}>
+          Sevgiyle atacağımız bu adıma ortak olmanız dileğiyle… 🌿✨
+        </Typography>
+        <Typography variant="body1" paragraph sx={styles.coloredText(event.color)}>
+          Sizi aramızda görmekten mutluluk duyarız! 🕊️💕
+        </Typography>
+      </Paper>
+
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Card sx={styles.card(event.color)}>
