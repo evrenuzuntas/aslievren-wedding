@@ -48,5 +48,5 @@ export const ROUTES = {
   NIKAH: "/nikah",
   AFTER: "/after",
   CONTACT: "/iletisim",
-  NOT_FOUND: "*",
+  NOT_FOUND: "/404",
 };

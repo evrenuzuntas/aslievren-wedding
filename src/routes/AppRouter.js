@@ -25,6 +25,7 @@ const AppRouter = () => {
           <Route path={ROUTES.AFTER} element={<After />} />
           <Route path={ROUTES.CONTACT} element={<Contact />} />
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       {showFooter && <Footer />}
