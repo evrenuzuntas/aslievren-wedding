@@ -130,11 +130,6 @@ const Home = () => {
         </Typography>
         <Grid container spacing={2} sx={styles.buttonGrid}>
           <Grid item>
-            <StyledButton startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.KINA)}>
-              Kına Sayfasına Git
-            </StyledButton>
-          </Grid>
-          <Grid item>
             <StyledButton startIcon={<FavoriteIcon />} onClick={() => navigate(ROUTES.NIKAH)}>
               Nikah Sayfasına Git
             </StyledButton>
